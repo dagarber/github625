@@ -217,6 +217,7 @@ GameObject:
   - component: {fileID: 661578449}
   - component: {fileID: 661578448}
   - component: {fileID: 661578450}
+  - component: {fileID: 661578451}
   m_Layer: 0
   m_Name: Piggie
   m_TagString: Player
@@ -310,6 +311,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &661578451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 661578447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbbf853a3af0649f0a3c49adeedb3ee4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DESTROY_DIST_SQ: 500
 --- !u!1 &785439903
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,7 +424,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &1214392004
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -482,7 +496,7 @@ Transform:
   m_GameObject: {fileID: 1214392003}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.0118093, y: 0.14649606, z: -2.819284}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -498,6 +512,7 @@ GameObject:
   - component: {fileID: 1561147998}
   - component: {fileID: 1561147997}
   - component: {fileID: 1561147996}
+  - component: {fileID: 1561147999}
   m_Layer: 0
   m_Name: CannonSprite
   m_TagString: Untagged
@@ -519,7 +534,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camera: {fileID: 519420031}
   mouseCube: {fileID: 1214392007}
+  piggieRigidBody: {fileID: 0}
   piggie: {fileID: 0}
+  cannonSprite: {fileID: 0}
+  MAX_ANGLE: 80
+  MIN_ANGLE: 10
+  CANNON_POWER: 70
 --- !u!212 &1561147997
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -578,14 +598,27 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1561147995}
-  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 661578449}
   m_Father: {fileID: 2044102713}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1561147999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561147995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdb33d7dab73a4271ba9d17aa805f1bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  piggie: {fileID: 0}
 --- !u!1 &1757240554
 GameObject:
   m_ObjectHideFlags: 0
@@ -810,7 +843,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camera: {fileID: 519420031}
   mouseCube: {fileID: 1214392007}
-  piggie: {fileID: 661578450}
+  piggieRigidBody: {fileID: 661578450}
+  piggie: {fileID: 661578447}
+  cannonSprite: {fileID: 1561147998}
+  MAX_ANGLE: 80
+  MIN_ANGLE: 10
+  CANNON_POWER: 70
 --- !u!4 &2044102713
 Transform:
   m_ObjectHideFlags: 0

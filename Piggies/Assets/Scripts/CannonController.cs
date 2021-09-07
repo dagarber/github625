@@ -9,15 +9,35 @@ public class CannonController : MonoBehaviour
 
     public Camera camera;
     public Transform mouseCube;
-    public Rigidbody2D piggie;
+    public Rigidbody2D piggieRigidBody;
+    public GameObject piggie;
+    public Transform cannonSprite;
+
+    private float piggiePosX;
+    private float piggiePosY;
+    private float hyp;
+    private float ang;
+    private GameObject newPiggie;
+    private bool MOUSE_DOWN = false;
+
+    public float MAX_ANGLE = 80;
+    public float MIN_ANGLE = 0;
+    public float CANNON_POWER = 70;
 
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.visible = false;
         //camera = GameObject.Find("MainCamera").GetComponent<Camera>(); // or replace Camera with Transform
         //shortcut for GetComponent<Transform> is just .transform
         //this is very slow, maybe 3nanoseconds... but it's fine to do that in start
-        piggie.gravityScale = 0;
+        piggieRigidBody.gravityScale = 0;
+        piggiePosX = piggie.transform.localPosition.x;
+        piggiePosY = piggie.transform.localPosition.y;
+        hyp = new Vector2(piggiePosX, piggiePosY).magnitude;
+        ang = Mathf.Atan(piggiePosY / piggiePosX)*Mathf.Rad2Deg;
+        Debug.Log("PiggieStart X Y " + piggiePosX + piggiePosY);
+        //piggieTransform = piggieRigidBody.transform;
     }
 
     // Update is called once per frame
@@ -41,31 +61,78 @@ public class CannonController : MonoBehaviour
 
         Vector3 mouseInWorld = camera.ScreenToWorldPoint(pointInWorld);
         //Debug.Log("Position in world: " + mouseInWorld);
+        
+        Vector3 direction = mouseInWorld - transform.position;
+        
+        float angleOfCannon = Mathf.Acos(Vector3.Dot(Vector3.right, direction.normalized)) * Mathf.Rad2Deg;
+        //float angleOfCannon = -1*Vector3.Dot(Vector3.right, direction.normalized) * Mathf.Rad2Deg;
+        //Debug.Log("Angle of Cannon: " + angleOfCannon);
 
-        transform.LookAt(mouseInWorld);
-
-        if(Input.GetMouseButton(0))
+        if (angleOfCannon <= MAX_ANGLE && angleOfCannon >= MIN_ANGLE && direction.y > 0)
         {
-            piggie.gravityScale = 1;
-            piggie.transform.parent = null;
+            transform.rotation = Quaternion.Euler(0,0,angleOfCannon);
+        }
 
-            Vector3 temp = mouseInWorld - transform.position;
+        //transform.LookAt(mouseInWorld);
 
-            Vector2 directionAndMagnitudeOfForce = new Vector2(temp.x, temp.y);
-            piggie.AddForce(directionAndMagnitudeOfForce*30);
+        if(Input.GetMouseButtonUp(0))
+        {
+            MOUSE_DOWN = false;
+        }
+
+        if(Input.GetMouseButton(0) && piggieRigidBody.transform.parent != null && MOUSE_DOWN == false)
+        {
+            piggieRigidBody.gravityScale = 1;
+            piggieRigidBody.transform.parent = null;
+
+            //Vector3 temp = mouseInWorld - transform.position;
+
+            Vector2 directionAndMagnitudeOfForce = new Vector2(direction.x, direction.y); // .normalized;
+            // don't normalize, distance away controls power level
+            piggieRigidBody.AddForce(directionAndMagnitudeOfForce*CANNON_POWER);
             //piggie.AddForce(mouseInWorld - transform.position);
             //piggie.AddForce(Vector2.up * 200);
+            Destroy(piggie, 2);
+            MOUSE_DOWN = true;
+            StartCoroutine(SpawnPiggie());
+
         }
 
 
 
-        //mouseCube.transform.position = mouseInWorld;
+        mouseCube.transform.position = mouseInWorld;
 
         //  new Vector3(Input.mousePosition.x,Input.mousePosition.y, -camera.transform.position.z));
         //think of Vector3 as a point
         //declared a local variable (inside the function) deleted after function exit
 
         //Vector3 mouseInWorld = Camera.main.ScreenToWorldPoint();
+
+    }
+
+    IEnumerator SpawnPiggie()
+    {
+        yield return new WaitForSeconds(1.0f);
+        //Vector3 piggiePos = new Vector3(piggiePosX, piggiePosY, 0);
+        Vector3 piggiePos = new Vector3(piggiePosX * Mathf.Cos(transform.rotation.z), piggiePosY * Mathf.Sin(transform.rotation.z), 0);
+        Quaternion piggieRot = Quaternion.Euler(0, 0, 0);
+        //Vector3 piggieScale = new Vector3(0.30932f, 0.30932f, 0.30932f);
+        //Transform piggieTrans = new Vector3(piggiePos, piggieRot, piggieScale);
+        newPiggie = Instantiate(piggie, transform.localPosition + piggiePos, piggieRot, transform); // cannonSprite
+        //newPiggie.transform.position = new Vector3(piggiePosX, piggiePosY, 0);
+        piggie = newPiggie;
+        piggieRigidBody = piggie.GetComponent<Rigidbody2D>();
+        piggieRigidBody.transform.parent = this.transform; // cannonSprite;
+        piggieRigidBody.gravityScale = 0;
+        piggie.transform.localPosition = new Vector3(piggiePosX, piggiePosY, 0);
+        piggie.transform.localRotation = Quaternion.Euler(0, 0, 0);
+        //piggie.transform.rotation = new Vector3(this.transform.rotation.ToEulerAngles, this.transform.rotation.y, this.transform.rotation.z);
+        //piggieRigidBody.transform.parent = cannonSprite;
+        //piggieRigidBody = newPiggie.GetComponent<>(Rigidbody2D);
+    }
+
+    void WaitForSecondsRealtime(int t)
+    {
 
     }
 }
