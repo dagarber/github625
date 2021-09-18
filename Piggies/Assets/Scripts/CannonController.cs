@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+//using UnityEngine.UI;
 
 public class CannonController : MonoBehaviour
 {
@@ -12,8 +12,8 @@ public class CannonController : MonoBehaviour
     public Transform mouseCube;
     public Rigidbody2D piggieRigidBody;
     public GameObject piggie;
-    public Text scoreText;
-    private static int score = 0;
+    //public Text scoreText;
+    //private static int score = 0;
 
     private float piggiePosX;
     private float piggiePosY;
@@ -39,9 +39,9 @@ public class CannonController : MonoBehaviour
         piggiePosY = piggie.transform.localPosition.y;
         hyp = new Vector2(piggiePosX, piggiePosY).magnitude;
         ang = Mathf.Atan(piggiePosY / piggiePosX)*Mathf.Rad2Deg;
-        Debug.Log("PiggieStart X Y " + piggiePosX + piggiePosY);
+        //Debug.Log("PiggieStart X Y " + piggiePosX + piggiePosY);
         //piggieTransform = piggieRigidBody.transform;
-        scoreText.text = score.ToString();
+        //scoreText.text = score.ToString();
     }
 
     // Update is called once per frame
@@ -97,8 +97,8 @@ public class CannonController : MonoBehaviour
             Destroy(piggie, 2); // wait until after the new piggie is created before destroying the old one
             MOUSE_DOWN = true;
             StartCoroutine(SpawnPiggie());
-            score++;
-            scoreText.text = score.ToString();
+            //score++;
+            //scoreText.text = score.ToString();
 
 
         }

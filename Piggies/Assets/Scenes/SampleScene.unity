@@ -133,11 +133,11 @@ GameObject:
   m_Component:
   - component: {fileID: 307115724}
   - component: {fileID: 307115723}
-  - component: {fileID: 307115722}
   - component: {fileID: 307115721}
   - component: {fileID: 307115720}
+  - component: {fileID: 307115725}
   m_Layer: 0
-  m_Name: Obstacle (4)
+  m_Name: Level3aObstacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -190,32 +190,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!68 &307115722
-EdgeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 307115719}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: -0.3964319, y: -0.3426022}
-  - {x: -0.37097886, y: -0.370387}
-  - {x: -0.3890065, y: 0.3816203}
-  - {x: 0.39378792, y: 0.38467038}
-  - {x: 0.40135133, y: -0.38493156}
-  - {x: -0.37006825, y: -0.37163633}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
 --- !u!212 &307115723
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -281,6 +255,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &307115725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 307115719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5452cf1c89c404d9eb1b032b8a18b81e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &326377267
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,11 +277,11 @@ GameObject:
   m_Component:
   - component: {fileID: 326377272}
   - component: {fileID: 326377271}
-  - component: {fileID: 326377270}
   - component: {fileID: 326377269}
   - component: {fileID: 326377268}
+  - component: {fileID: 326377273}
   m_Layer: 0
-  m_Name: Obstacle (2)
+  m_Name: Level1Obstacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -348,32 +334,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!68 &326377270
-EdgeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 326377267}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: -0.3964319, y: -0.3426022}
-  - {x: -0.37097886, y: -0.370387}
-  - {x: -0.3890065, y: 0.3816203}
-  - {x: 0.39378792, y: 0.38467038}
-  - {x: 0.40135133, y: -0.38493156}
-  - {x: -0.37006825, y: -0.37163633}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
 --- !u!212 &326377271
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -437,8 +397,20 @@ Transform:
   m_LocalScale: {x: 1.6744, y: 1.6744, z: 1.6744}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &326377273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 326377267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 941739356f6e5475ebab0f0379a4d21b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &345437452
 GameObject:
   m_ObjectHideFlags: 0
@@ -518,6 +490,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 345437452}
   m_CullTransparentMesh: 1
+--- !u!1 &488126416
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 488126418}
+  - component: {fileID: 488126417}
+  m_Layer: 0
+  m_Name: ScoreSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &488126417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 488126416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01425cc416db14a96b53d9862dba2d19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreText: {fileID: 345437454}
+--- !u!4 &488126418
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 488126416}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.3687366, y: -84.24765, z: 301.4822}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -614,6 +630,7 @@ GameObject:
   - component: {fileID: 661578450}
   - component: {fileID: 661578451}
   - component: {fileID: 661578452}
+  - component: {fileID: 661578453}
   m_Layer: 0
   m_Name: Piggie
   m_TagString: Player
@@ -735,6 +752,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.00000047683716}
   serializedVersion: 2
   m_Radius: 0.6
+--- !u!58 &661578453
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 661578447}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.00000047683716}
+  serializedVersion: 2
+  m_Radius: 0.65
 --- !u!1 &785439903
 GameObject:
   m_ObjectHideFlags: 0
@@ -745,11 +778,11 @@ GameObject:
   m_Component:
   - component: {fileID: 785439905}
   - component: {fileID: 785439904}
-  - component: {fileID: 785439906}
   - component: {fileID: 785439907}
   - component: {fileID: 785439908}
+  - component: {fileID: 785439909}
   m_Layer: 0
-  m_Name: Obstacle
+  m_Name: Level3Obstacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -818,34 +851,8 @@ Transform:
   m_LocalScale: {x: 1.6744, y: 1.6744, z: 1.6744}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!68 &785439906
-EdgeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 785439903}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: -0.3964319, y: -0.3426022}
-  - {x: -0.37097886, y: -0.370387}
-  - {x: -0.3890065, y: 0.3816203}
-  - {x: 0.39378792, y: 0.38467038}
-  - {x: 0.40135133, y: -0.38493156}
-  - {x: -0.37006825, y: -0.37163633}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
 --- !u!50 &785439907
 Rigidbody2D:
   serializedVersion: 4
@@ -893,6 +900,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.79, y: 0.79}
   m_EdgeRadius: 0
+--- !u!114 &785439909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 785439903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5452cf1c89c404d9eb1b032b8a18b81e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &876652797
 GameObject:
   m_ObjectHideFlags: 0
@@ -1083,11 +1102,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1137592634}
   - component: {fileID: 1137592633}
-  - component: {fileID: 1137592632}
   - component: {fileID: 1137592631}
   - component: {fileID: 1137592630}
+  - component: {fileID: 1137592635}
   m_Layer: 0
-  m_Name: Obstacle (1)
+  m_Name: Level2Obstacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1140,32 +1159,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!68 &1137592632
-EdgeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1137592629}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: -0.3964319, y: -0.3426022}
-  - {x: -0.37097886, y: -0.370387}
-  - {x: -0.3890065, y: 0.3816203}
-  - {x: 0.39378792, y: 0.38467038}
-  - {x: 0.40135133, y: -0.38493156}
-  - {x: -0.37006825, y: -0.37163633}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
 --- !u!212 &1137592633
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1231,6 +1224,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1137592635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137592629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a55257843612044df86bc68fd4c692bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1214392003
 GameObject:
   m_ObjectHideFlags: 0
@@ -1324,7 +1329,7 @@ Transform:
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1561147995
 GameObject:
@@ -1361,7 +1366,6 @@ MonoBehaviour:
   mouseCube: {fileID: 1214392007}
   piggieRigidBody: {fileID: 0}
   piggie: {fileID: 0}
-  scoreText: {fileID: 0}
   MAX_ANGLE: 80
   MIN_ANGLE_POS: 0
   MIN_ANGLE_NEG: -5
@@ -1444,7 +1448,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdb33d7dab73a4271ba9d17aa805f1bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  piggie: {fileID: 0}
+--- !u!1 &1706528173
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1706528175}
+  - component: {fileID: 1706528174}
+  m_Layer: 0
+  m_Name: SoundSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1706528174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1706528173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db2899d50cb2f4874bbb16e3c0f2e7c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1706528175
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1706528173}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.1866143, y: -4.914337, z: 11.854741}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1757240554
 GameObject:
   m_ObjectHideFlags: 0
@@ -1525,7 +1571,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1861921387
 GameObject:
@@ -1671,7 +1717,6 @@ MonoBehaviour:
   mouseCube: {fileID: 1214392007}
   piggieRigidBody: {fileID: 661578450}
   piggie: {fileID: 661578447}
-  scoreText: {fileID: 345437454}
   MAX_ANGLE: 80
   MIN_ANGLE_POS: 0
   MIN_ANGLE_NEG: -5
@@ -1689,7 +1734,7 @@ Transform:
   m_Children:
   - {fileID: 1561147998}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2057359013
 GameObject:
@@ -1701,11 +1746,11 @@ GameObject:
   m_Component:
   - component: {fileID: 2057359018}
   - component: {fileID: 2057359017}
-  - component: {fileID: 2057359016}
   - component: {fileID: 2057359015}
   - component: {fileID: 2057359014}
+  - component: {fileID: 2057359019}
   m_Layer: 0
-  m_Name: Obstacle (3)
+  m_Name: Level2aObstacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1758,32 +1803,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!68 &2057359016
-EdgeCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2057359013}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
-  m_Points:
-  - {x: -0.3964319, y: -0.3426022}
-  - {x: -0.37097886, y: -0.370387}
-  - {x: -0.3890065, y: 0.3816203}
-  - {x: 0.39378792, y: 0.38467038}
-  - {x: 0.40135133, y: -0.38493156}
-  - {x: -0.37006825, y: -0.37163633}
-  m_AdjacentStartPoint: {x: 0, y: 0}
-  m_AdjacentEndPoint: {x: 0, y: 0}
-  m_UseAdjacentStartPoint: 0
-  m_UseAdjacentEndPoint: 0
 --- !u!212 &2057359017
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1847,5 +1866,17 @@ Transform:
   m_LocalScale: {x: 1.6744, y: 1.6744, z: 1.6744}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2057359019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2057359013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a55257843612044df86bc68fd4c692bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
