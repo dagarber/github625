@@ -6,7 +6,7 @@ public class PiggieDestroyer : MonoBehaviour
 {
     private Transform piggieStart;
     private Vector2 piggieStartPos;
-    public float DESTROY_DIST_SQ = 50;
+    private float DESTROY_DIST_SQ = 50;
 
     // Start is called before the first frame update
     void Start()
@@ -24,13 +24,12 @@ public class PiggieDestroyer : MonoBehaviour
         //Debug.Log("PiggieStart Current Dist DistSq " + piggieStartPos + currentPos + direction + distanceSquared);
         if (distanceSquared > DESTROY_DIST_SQ)
         {
-           // Destroy();
+            //Debug.Log("TRUE");
+           //Destroy(gameObject); // must use 'gameObject', not 'this', to destroy the game object and not the script
+           // right now I am destroying the piggie in the cannon script using a timer (so I can make sure to create the new
+           // piggie before destroying the original one)
         }
 
     }
 
-    void Destroy()
-    {
-        Destroy(this); //  this.Destroy();
-    }
 }

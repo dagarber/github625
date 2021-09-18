@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CannonController : MonoBehaviour
 {
@@ -11,7 +12,8 @@ public class CannonController : MonoBehaviour
     public Transform mouseCube;
     public Rigidbody2D piggieRigidBody;
     public GameObject piggie;
-    public Transform cannonSprite;
+    public Text scoreText;
+    private static int score = 0;
 
     private float piggiePosX;
     private float piggiePosY;
@@ -21,7 +23,8 @@ public class CannonController : MonoBehaviour
     private bool MOUSE_DOWN = false;
 
     public float MAX_ANGLE = 80;
-    public float MIN_ANGLE = 0;
+    public float MIN_ANGLE_POS = 0;
+    public float MIN_ANGLE_NEG = -5;
     public float CANNON_POWER = 70;
 
     // Start is called before the first frame update
@@ -38,6 +41,7 @@ public class CannonController : MonoBehaviour
         ang = Mathf.Atan(piggiePosY / piggiePosX)*Mathf.Rad2Deg;
         Debug.Log("PiggieStart X Y " + piggiePosX + piggiePosY);
         //piggieTransform = piggieRigidBody.transform;
+        scoreText.text = score.ToString();
     }
 
     // Update is called once per frame
@@ -65,12 +69,15 @@ public class CannonController : MonoBehaviour
         Vector3 direction = mouseInWorld - transform.position;
         
         float angleOfCannon = Mathf.Acos(Vector3.Dot(Vector3.right, direction.normalized)) * Mathf.Rad2Deg;
-        //float angleOfCannon = -1*Vector3.Dot(Vector3.right, direction.normalized) * Mathf.Rad2Deg;
         //Debug.Log("Angle of Cannon: " + angleOfCannon);
 
-        if (angleOfCannon <= MAX_ANGLE && angleOfCannon >= MIN_ANGLE && direction.y > 0)
+        if (angleOfCannon <= MAX_ANGLE && angleOfCannon >= MIN_ANGLE_POS && direction.y > 0)
         {
             transform.rotation = Quaternion.Euler(0,0,angleOfCannon);
+        }
+        else if (Mathf.Abs(angleOfCannon) <= Mathf.Abs(MIN_ANGLE_NEG) && Mathf.Abs(angleOfCannon) >= 0 && direction.y < 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, -angleOfCannon);
         }
 
         //transform.LookAt(mouseInWorld);
@@ -84,51 +91,34 @@ public class CannonController : MonoBehaviour
         {
             piggieRigidBody.gravityScale = 1;
             piggieRigidBody.transform.parent = null;
-
-            //Vector3 temp = mouseInWorld - transform.position;
-
             Vector2 directionAndMagnitudeOfForce = new Vector2(direction.x, direction.y); // .normalized;
             // don't normalize, distance away controls power level
             piggieRigidBody.AddForce(directionAndMagnitudeOfForce*CANNON_POWER);
-            //piggie.AddForce(mouseInWorld - transform.position);
-            //piggie.AddForce(Vector2.up * 200);
-            Destroy(piggie, 2);
+            Destroy(piggie, 2); // wait until after the new piggie is created before destroying the old one
             MOUSE_DOWN = true;
             StartCoroutine(SpawnPiggie());
+            score++;
+            scoreText.text = score.ToString();
+
 
         }
 
-
-
         mouseCube.transform.position = mouseInWorld;
-
-        //  new Vector3(Input.mousePosition.x,Input.mousePosition.y, -camera.transform.position.z));
-        //think of Vector3 as a point
-        //declared a local variable (inside the function) deleted after function exit
-
-        //Vector3 mouseInWorld = Camera.main.ScreenToWorldPoint();
 
     }
 
     IEnumerator SpawnPiggie()
     {
-        yield return new WaitForSeconds(1.0f);
-        //Vector3 piggiePos = new Vector3(piggiePosX, piggiePosY, 0);
+        yield return new WaitForSeconds(1.0f); // must be shorter than the Destroy time above
         Vector3 piggiePos = new Vector3(piggiePosX * Mathf.Cos(transform.rotation.z), piggiePosY * Mathf.Sin(transform.rotation.z), 0);
         Quaternion piggieRot = Quaternion.Euler(0, 0, 0);
-        //Vector3 piggieScale = new Vector3(0.30932f, 0.30932f, 0.30932f);
-        //Transform piggieTrans = new Vector3(piggiePos, piggieRot, piggieScale);
-        newPiggie = Instantiate(piggie, transform.localPosition + piggiePos, piggieRot, transform); // cannonSprite
-        //newPiggie.transform.position = new Vector3(piggiePosX, piggiePosY, 0);
+        newPiggie = Instantiate(piggie, transform.localPosition + piggiePos, piggieRot, transform);
         piggie = newPiggie;
         piggieRigidBody = piggie.GetComponent<Rigidbody2D>();
-        piggieRigidBody.transform.parent = this.transform; // cannonSprite;
+        piggieRigidBody.transform.parent = this.transform;
         piggieRigidBody.gravityScale = 0;
         piggie.transform.localPosition = new Vector3(piggiePosX, piggiePosY, 0);
         piggie.transform.localRotation = Quaternion.Euler(0, 0, 0);
-        //piggie.transform.rotation = new Vector3(this.transform.rotation.ToEulerAngles, this.transform.rotation.y, this.transform.rotation.z);
-        //piggieRigidBody.transform.parent = cannonSprite;
-        //piggieRigidBody = newPiggie.GetComponent<>(Rigidbody2D);
     }
 
     void WaitForSecondsRealtime(int t)
