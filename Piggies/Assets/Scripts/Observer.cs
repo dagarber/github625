@@ -11,5 +11,9 @@ public enum NotificationType
 {
     Level1Hit,
     Level2Hit,
-    Level3Hit
+    Level3Hit,
+    RedBird,
+    BlackBird,
+    YellowBird,
+    Lose
 }

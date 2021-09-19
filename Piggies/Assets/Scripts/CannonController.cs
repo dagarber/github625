@@ -21,6 +21,8 @@ public class CannonController : MonoBehaviour
     private float ang;
     private GameObject newPiggie;
     private bool MOUSE_DOWN = false;
+    private float DESTROY_TIME = 4;
+    private float NEW_TIME = 1; // must be shorter than DESTROY_TIME
 
     public float MAX_ANGLE = 80;
     public float MIN_ANGLE_POS = 0;
@@ -94,7 +96,7 @@ public class CannonController : MonoBehaviour
             Vector2 directionAndMagnitudeOfForce = new Vector2(direction.x, direction.y); // .normalized;
             // don't normalize, distance away controls power level
             piggieRigidBody.AddForce(directionAndMagnitudeOfForce*CANNON_POWER);
-            Destroy(piggie, 2); // wait until after the new piggie is created before destroying the old one
+            Destroy(piggie, DESTROY_TIME); // wait until after the new piggie is created before destroying the old one
             MOUSE_DOWN = true;
             StartCoroutine(SpawnPiggie());
             //score++;
@@ -109,7 +111,7 @@ public class CannonController : MonoBehaviour
 
     IEnumerator SpawnPiggie()
     {
-        yield return new WaitForSeconds(1.0f); // must be shorter than the Destroy time above
+        yield return new WaitForSeconds(NEW_TIME); // must be shorter than the Destroy time above
         Vector3 piggiePos = new Vector3(piggiePosX * Mathf.Cos(transform.rotation.z), piggiePosY * Mathf.Sin(transform.rotation.z), 0);
         Quaternion piggieRot = Quaternion.Euler(0, 0, 0);
         newPiggie = Instantiate(piggie, transform.localPosition + piggiePos, piggieRot, transform);
@@ -121,8 +123,4 @@ public class CannonController : MonoBehaviour
         piggie.transform.localRotation = Quaternion.Euler(0, 0, 0);
     }
 
-    void WaitForSecondsRealtime(int t)
-    {
-
-    }
 }
