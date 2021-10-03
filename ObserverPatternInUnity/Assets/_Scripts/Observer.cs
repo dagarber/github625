@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface Observer
 {
-    void OnNotify(object obj, NotificationType notificationType);
+    void OnNotify(GameObject obj, NotificationType notificationType);
 }
 
 public enum NotificationType

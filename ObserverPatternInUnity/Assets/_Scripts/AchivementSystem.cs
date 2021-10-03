@@ -5,7 +5,7 @@ using UnityEngine;
 public class AchivementSystem : MonoBehaviour, Observer
 {
  
-    public void OnNotify(object obj, NotificationType notificationType)
+    public void OnNotify(GameObject obj, NotificationType notificationType)
     {
         if (notificationType == NotificationType.GreenCubeCollected)
         {

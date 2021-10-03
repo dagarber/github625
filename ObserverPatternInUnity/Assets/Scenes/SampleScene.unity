@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 77841150}
   - component: {fileID: 77841154}
   - component: {fileID: 77841155}
+  - component: {fileID: 77841156}
   m_Layer: 0
   m_Name: OrangeCube
   m_TagString: Untagged
@@ -244,6 +245,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41a9e250d5b42403a89823fae762b183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &77841156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 77841149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22bb33a93aa5a45f7b9f25d964c1d1e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numCorners: 0
 --- !u!1 &213394781
 GameObject:
   m_ObjectHideFlags: 0
@@ -256,6 +270,7 @@ GameObject:
   - component: {fileID: 213394784}
   - component: {fileID: 213394783}
   - component: {fileID: 213394782}
+  - component: {fileID: 213394786}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -272,7 +287,7 @@ MeshCollider:
   m_GameObject: {fileID: 213394781}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
@@ -340,6 +355,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &213394786
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 213394781}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 10, y: 2.220446e-16, z: 10}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!850595691 &327992592
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -470,6 +498,7 @@ GameObject:
   - component: {fileID: 909022601}
   - component: {fileID: 909022600}
   - component: {fileID: 909022604}
+  - component: {fileID: 909022605}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -547,13 +576,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 909022599}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0.9999989, z: -0, w: -0.0014616916}
   m_LocalPosition: {x: 2.68, y: 1, z: 1.41}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -180.168, z: 0}
 --- !u!54 &909022604
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -565,11 +594,24 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &909022605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 909022599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6263fcb7976e64a6d8533c1471920c26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
 --- !u!1 &961493040
 GameObject:
   m_ObjectHideFlags: 0
@@ -803,6 +845,7 @@ GameObject:
   - component: {fileID: 1634232901}
   - component: {fileID: 1634232905}
   - component: {fileID: 1634232906}
+  - component: {fileID: 1634232907}
   m_Layer: 0
   m_Name: RedCube
   m_TagString: Untagged
@@ -910,6 +953,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff7d84217a2f74cf48559905e932095e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1634232907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1634232900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62ce90cf7b5894f49b048b469594c936, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numCorners: 0
 --- !u!1 &1809888581
 GameObject:
   m_ObjectHideFlags: 0
@@ -924,6 +980,7 @@ GameObject:
   - component: {fileID: 1809888582}
   - component: {fileID: 1809888586}
   - component: {fileID: 1809888587}
+  - component: {fileID: 1809888588}
   m_Layer: 0
   m_Name: GreenCube
   m_TagString: Untagged
@@ -1031,3 +1088,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9813f30880cb6e34698253f4c3abece1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1809888588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1809888581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a9ccdc3f90574142a70ee242c2339c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numCorners: 0

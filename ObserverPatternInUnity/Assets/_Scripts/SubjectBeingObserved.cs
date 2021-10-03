@@ -16,7 +16,7 @@ public class SubjectBeingObserved : MonoBehaviour // a class and not an interfac
         _observers.Remove(observer);
     }
 
-    public void Notify(object obj, NotificationType notificationType)
+    public void Notify(GameObject obj, NotificationType notificationType)
     {
         foreach(Observer observer in _observers)
         {

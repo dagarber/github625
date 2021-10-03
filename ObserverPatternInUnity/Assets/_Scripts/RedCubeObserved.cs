@@ -6,6 +6,6 @@ public class RedCubeObserved : SubjectBeingObserved
 {
     private void OnTriggerEnter(Collider other)
     {
-        Notify(this, NotificationType.RedCubeCollected);
+        Notify(this.gameObject, NotificationType.RedCubeCollected);
     }
 }
