@@ -12,7 +12,22 @@ public class RedCubeShape : Shapes
 
     public override string whoAmII()
     {
-        return "red";
+        return "red cube";
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        string s = whoAmII();
+        //string s = "hello";
+        //Notify(this.gameObject, NotificationType.GreenCubeCollected);
+        Notify(s, NotificationType.ItemAdded);
+    }
+
+    public override void toDrop()
+    {
+        string s = whoAmII();
+        Notify(s, NotificationType.ItemDropped);
+    }
+
 
 }

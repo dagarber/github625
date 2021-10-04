@@ -24,4 +24,12 @@ public class SubjectBeingObserved : MonoBehaviour // a class and not an interfac
         }
     }
 
+    public void Notify(string s, NotificationType notificationType)
+    {
+        foreach (Observer observer in _observers)
+        {
+            observer.OnNotify(s, notificationType);
+        }
+    }
+
 }

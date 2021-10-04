@@ -29,35 +29,22 @@ public class PlayerMove : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.D))
         {
-            GameObject go = Repository.Return();
+            Shapes go = Repository.Return();
             float x=1.0f;
             float z=1.0f;
-            //float min = 1;
-            //float max = 2;
             float posneg = Random.Range(-1.0f, 1.0f);
-            //Debug.Log("posneg " + posneg);
-            if (posneg > 0)
+            if (posneg < 0)
             {
-                //x = Random.Range(min, max);
-            }
-            else
-            {
-                //x = Random.Range(-1*min, -1*max);
                 x = -x;
             }
             posneg = Random.Range(-1.0f, 1.0f);
-            if (posneg > 0)
+            if (posneg < 0)
             {
-                //z = Random.Range(min, max);
-            }
-            else
-            {
-                //z = Random.Range(-1*min, -1*max);
                 z = -z;
             }
 
-            go.transform.position = this.transform.position + new Vector3(x, 0, z);
-            go.SetActive(true);
+            go.gameObject.transform.position = this.transform.position + new Vector3(x, 0, z);
+            go.gameObject.SetActive(true);
         }
 
         if (Input.GetKeyDown(KeyCode.L))

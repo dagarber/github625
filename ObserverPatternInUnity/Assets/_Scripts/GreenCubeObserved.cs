@@ -6,7 +6,9 @@ public class GreenCubeObserved : SubjectBeingObserved
 {
     private void OnTriggerEnter(Collider other)
     {
-        Notify(this.gameObject, NotificationType.GreenCubeCollected);       
+        //string s = "hello";
+        Notify(this.gameObject, NotificationType.GreenCubeCollected);
+        //Notify(s, NotificationType.ItemAdded);
     }
 
 }

@@ -41,7 +41,12 @@ public class ScoreSystem : MonoBehaviour, Observer
         Debug.Log("New score: " + score);
     }
 
-    void Start()
+    public void OnNotify(string s, NotificationType notificationType)
+    {
+        // do stuff
+    }
+
+        void Start()
     {
         foreach (SubjectBeingObserved subject in FindObjectsOfType<SubjectBeingObserved>())
         {

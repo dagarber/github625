@@ -16,10 +16,23 @@ public class GreenCubeShape : Shapes
     public override string whoAmII()
     {
         //Debug.Log("green");
-        string gtext = "green";
+        string gtext = "green cube";
         return gtext;
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        string s = whoAmII();
+        //string s = "hello";
+        //Notify(this.gameObject, NotificationType.GreenCubeCollected);
+        Notify(s, NotificationType.ItemAdded);
+    }
+
+    public override void toDrop()
+    {
+        string s = whoAmII();
+        Notify(s, NotificationType.ItemDropped);
+    }
 
 
 }

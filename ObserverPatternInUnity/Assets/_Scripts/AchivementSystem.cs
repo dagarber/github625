@@ -9,7 +9,19 @@ public class AchivementSystem : MonoBehaviour, Observer
     {
         if (notificationType == NotificationType.GreenCubeCollected)
         {
-            Debug.Log("Congrats! You unlocked an achievement!");
+            //Debug.Log("Congrats! You unlocked an achievement!");
+        }
+    }
+
+    public void OnNotify(string s, NotificationType notificationType)
+    {
+        if (notificationType == NotificationType.ItemAdded)
+        {
+            Debug.Log("You picked up the " + s);
+        }
+        if (notificationType == NotificationType.ItemDropped)
+        {
+            Debug.Log("You dropped the " + s);
         }
     }
 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Shapes : MonoBehaviour
+public abstract class Shapes : SubjectBeingObserved
 {
     protected string color;
 
@@ -15,6 +15,7 @@ public abstract class Shapes : MonoBehaviour
 
     public abstract string whoAmII();
 
+    public abstract void toDrop();
 
 
 
