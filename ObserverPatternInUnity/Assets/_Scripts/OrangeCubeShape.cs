@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class OrangeCubeShape : Shapes
 {
+
+    public OrangeCubeShape()
+    {
+        color = "orange";
+    }
+
     public override void move()
     {
         //do something

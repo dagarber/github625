@@ -8,6 +8,11 @@ public class GreenCubeShape : Shapes
     //Shapes.color = "green";
     //numCorners = 4;
 
+    public GreenCubeShape()
+    {
+        color = "green";
+    }
+
     public override void move()
     {
         //do something
@@ -15,6 +20,8 @@ public class GreenCubeShape : Shapes
 
     public override string whoAmII()
     {
+
+        //color = "green";
         //Debug.Log("green");
         string gtext = "green cube";
         return gtext;

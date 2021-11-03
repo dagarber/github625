@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SoundSystem : MonoBehaviour, Observer
 {
-    [SerializeField]
+    [SerializeField] // display it in the Unity interface but don't make it public
     AudioSource pickupSound;
     [SerializeField]
     AudioSource dropSound;

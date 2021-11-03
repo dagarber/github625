@@ -5,6 +5,11 @@ using UnityEngine;
 public class RedCubeShape : Shapes
 {
 
+    public RedCubeShape()
+    {
+        color = "red";
+    }
+
     public override void move()
     {
         //do something

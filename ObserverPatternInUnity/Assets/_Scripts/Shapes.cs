@@ -16,6 +16,14 @@ public abstract class Shapes : SubjectBeingObserved
     public abstract string whoAmII();
 
     public abstract void toDrop();
+    //private string color = "green";
+    //Shapes.color = "green";
+    //numCorners = 4;
+
+    //public void GreenCubeShape()
+    //{
+    //
+    //}
 
 
 
