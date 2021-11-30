@@ -80,8 +80,8 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _ColorFar: {r: 0.008184176, g: 0.7740481, b: 0.008184176, a: 0}
-    - _ColorNear: {r: 0.7740481, g: 0, b: 0.008184176, a: 0}
+    - _ColorFar: {r: 0.22941932, g: 1, b: 0, a: 0}
+    - _ColorNear: {r: 1, g: 0, b: 0.22941932, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Point: {r: 1, g: 1, b: 0.89735794, a: 0}
+    - _Point: {r: 1, g: 0.8764179, b: 1, a: 0}
   m_BuildTextureStacks: []
