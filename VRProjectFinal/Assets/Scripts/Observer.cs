@@ -11,6 +11,8 @@ public interface Observer
 
 public enum NotificationType
 {
-    BowledTwice
+    BowledTwice,
+    PigHit,
+    BirdHit
 }
 

@@ -8,7 +8,11 @@ public class SubjectBeingObserved : MonoBehaviour // a class and not an interfac
 
     public void AddObserver(Observer observer)
     {
-        _observers.Add(observer);
+        if (!_observers.Contains(observer))
+        {
+            _observers.Add(observer);
+        }
+
     }
 
     public void RemoveObserver(Observer observer)

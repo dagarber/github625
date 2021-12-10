@@ -47,7 +47,7 @@ public class Observer_Pins : MonoBehaviour, Observer
     void Update()
     {
         float angle = Vector3.Angle(transform.up, Vector3.up);
-        if(angle > 15)
+        if(angle > 30)
         {
             if(!fellDown)
             {
