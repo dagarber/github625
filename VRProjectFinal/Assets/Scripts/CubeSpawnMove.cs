@@ -23,7 +23,7 @@ public class CubeSpawnMove : MonoBehaviour
     {
         angle = angularVelocity * Time.fixedDeltaTime; // * 180.0f/ Mathf.PI;
 
-        Debug.Log("Angle is " + angle + ", Velocity is " + angularVelocity + ", deltaTime is " + Time.fixedDeltaTime);
+        //Debug.Log("Angle is " + angle + ", Velocity is " + angularVelocity + ", deltaTime is " + Time.fixedDeltaTime);
 
         transform.RotateAround(center.transform.position, Vector3.up, angle);
 

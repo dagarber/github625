@@ -17,13 +17,18 @@ public class CubeSpawner : MonoBehaviour
     public float destroyTime = 6.0f;
     public bool launchBool = true;
     public Text countdownText;
+    public bool MOVING = false; // set in editor
 
     private bool launchBonusBol = true; // false;
+    private Vector3 startPos;
+    private Vector3 startRot;
 
     // Start is called before the first frame update
     void Start()
     {
         launchBonusBol = false;
+        startPos = transform.position;
+        startRot = transform.eulerAngles;
 
     }
 
@@ -41,6 +46,11 @@ public class CubeSpawner : MonoBehaviour
         {
             if(launchBool)
             {
+                if(MOVING)
+                {
+                    startPos = transform.position;
+                    startRot = transform.eulerAngles;
+                }
                 Fire();
             }
             timer = 0;
@@ -60,6 +70,22 @@ public class CubeSpawner : MonoBehaviour
     public void Fire()
     {
         //Debug.Log("BOOM");
+
+        //float temp = NextFloat(-1.0f, 1.0f);
+        //Debug.Log("Random float is " + temp);
+
+        //float p1 = NextFloat(-1.0f, 1.0f);
+        float p2 = NextFloat(-0.3f, 0.3f);
+        //float p3 = NextFloat(-1.0f, 1.0f);
+        float r1 = NextFloat(-0.1f, 0.1f);
+        float r2 = NextFloat(-2.0f, 2.0f);
+        //float r3 = NextFloat(-1.0f, 1.0f);
+
+        transform.position = new Vector3(transform.position.x, transform.position.y + p2, transform.position.z);
+        transform.eulerAngles = new Vector3(transform.eulerAngles.x + r1, transform.eulerAngles.y + r2, transform.eulerAngles.z);
+        //Debug.Log("X (up/down) rotation is " + transform.eulerAngles.x + ", with an added rotation of " + r1);
+        //Debug.Log("Y (left/right) rotation is " + transform.eulerAngles.y + ", with an added rotation of " + r2);
+
         if (!launchBonusBol)
         {
             GameObject spawnedBullet = Instantiate(bullet, barrel.position + new Vector3(0, 0, 0), barrel.rotation);
@@ -76,7 +102,17 @@ public class CubeSpawner : MonoBehaviour
             launchBonusBol = false;
         }
 
+        transform.position = startPos;
+        transform.eulerAngles = startRot;
 
+
+    }
+
+    public float NextFloat(float min, float max)
+    {
+        System.Random random = new System.Random();
+        double val = (random.NextDouble() * (max - min) + min);
+        return (float)val;
     }
 
     public void ChangeRate(float newRate)

@@ -11,6 +11,7 @@ public class FireGun : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip audioClip;
     public Text bulletText;
+    public GameObject ScoreKeeper;
 
     private int bulletCount = 25;
 
@@ -18,6 +19,7 @@ public class FireGun : MonoBehaviour
     void Start()
     {
         bulletText.text = bulletCount.ToString();
+        ScoreKeeper = GameObject.Find("ScoreKeeper");
 
     }
 
@@ -35,13 +37,15 @@ public class FireGun : MonoBehaviour
             spawnedBullet.GetComponent<Rigidbody>().velocity = speed * -1.0f * barrel.up;
             audioSource.PlayOneShot(audioClip);
             Destroy(spawnedBullet, 2);
+            bulletCount--;
         }
-        bulletCount--;
-        if (bulletCount < 0)
+
+        if (bulletCount == 0)
         {
-            bulletCount = 0;
+            //bulletCount = 0;
             bulletText.color = Color.red;
-            Destroy(this.gameObject, 2);
+            ScoreKeeper.GetComponent<Observer_Score>().DeleteGun();
+            Destroy(this.gameObject, 5.0f);
         }
 
         bulletText.text = bulletCount.ToString();
