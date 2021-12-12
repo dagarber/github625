@@ -16,6 +16,7 @@ public class Observer_Score : MonoBehaviour, Observer
     public Transform Saber2;
     public int pigThresh = 1;
     public int birdThresh = 2;
+    public float saberGrowth = 0.1f;
 
     private int pigScore = 0;
     private int pigCounter = 0;
@@ -73,10 +74,15 @@ public class Observer_Score : MonoBehaviour, Observer
             Vector3 objectScale2 = Saber2.transform.localScale;
             Vector3 objectPos2 = Saber2.transform.localPosition;
             // Sets the local scale of game object
-            Saber.transform.localScale = new Vector3(objectScale.x * 1.0f, objectScale.y * 1.2f, objectScale.z * 1.0f);
-            Saber.transform.localPosition = new Vector3(objectPos.x, objectPos.y + objectScale.y * 0.1f, objectPos.z);
-            Saber2.transform.localScale = new Vector3(objectScale2.x * 1.0f, objectScale2.y * 1.2f, objectScale2.z * 1.0f);
-            Saber2.transform.localPosition = new Vector3(objectPos2.x, objectPos2.y + objectScale2.y * 0.1f, objectPos2.z);
+            //Saber.transform.localScale = new Vector3(objectScale.x * 1.0f, objectScale.y * 1.2f, objectScale.z * 1.0f);
+            //Saber.transform.localPosition = new Vector3(objectPos.x, objectPos.y + objectScale.y * 0.1f, objectPos.z);
+            //Saber2.transform.localScale = new Vector3(objectScale2.x * 1.0f, objectScale2.y * 1.2f, objectScale2.z * 1.0f);
+            //Saber2.transform.localPosition = new Vector3(objectPos2.x, objectPos2.y - objectScale2.y * 0.1f, objectPos2.z);
+
+            Saber.transform.localScale = new Vector3(objectScale.x * 1.0f, objectScale.y + saberGrowth, objectScale.z * 1.0f);
+            Saber.transform.localPosition = new Vector3(objectPos.x, objectPos.y + saberGrowth * 0.5f, objectPos.z);
+            Saber2.transform.localScale = new Vector3(objectScale2.x * 1.0f, objectScale2.y + saberGrowth, objectScale2.z * 1.0f);
+            Saber2.transform.localPosition = new Vector3(objectPos2.x, objectPos2.y - saberGrowth * 0.5f, objectPos2.z);
         }
 
 

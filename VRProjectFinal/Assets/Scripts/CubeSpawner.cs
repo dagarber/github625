@@ -77,7 +77,7 @@ public class CubeSpawner : MonoBehaviour
         //float p1 = NextFloat(-1.0f, 1.0f);
         float p2 = NextFloat(-0.3f, 0.3f);
         //float p3 = NextFloat(-1.0f, 1.0f);
-        float r1 = NextFloat(-0.1f, 0.1f);
+        float r1 = NextFloat(-2.0f, 0.0f);
         float r2 = NextFloat(-2.0f, 2.0f);
         //float r3 = NextFloat(-1.0f, 1.0f);
 

@@ -45,7 +45,8 @@ public class FireGun : MonoBehaviour
             //bulletCount = 0;
             bulletText.color = Color.red;
             ScoreKeeper.GetComponent<Observer_Score>().DeleteGun();
-            Destroy(this.gameObject, 5.0f);
+            //this.gameObject.GetComponent<XRGrabInteractable>().isGrabbed;
+            Destroy(this.gameObject, 10.0f);
         }
 
         bulletText.text = bulletCount.ToString();
