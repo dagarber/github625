@@ -30,18 +30,22 @@ public class DestroyOnTrigger : SubjectBeingObserved
             {
                 Notify(this.gameObject, NotificationType.BirdHit);
             }
+            else if (gameObject.name.Contains("BonusCube"))
+            {
+                Notify(this.gameObject, NotificationType.Bonus);
+            }
             counted = true;
 
         }
 
-            if (other.gameObject.name == "Saber")
-            Debug.Log("Saber!");
-        else if (other.gameObject.name == "Bullet")
-            Debug.Log("Flare gun!");
-        else if (other.gameObject.name == "Left Hand" || other.gameObject.name == "Right Hand")
-            Debug.Log("Hand!");
+            //if (other.gameObject.name == "Saber")
+            //Debug.Log("Saber!");
+        //else if (other.gameObject.name == "Bullet")
+           // Debug.Log("Flare gun!");
+        //else if (other.gameObject.name == "Left Hand" || other.gameObject.name == "Right Hand")
+            //Debug.Log("Hand!");
         //Debug.Log("Name is " + other.gameObject.name);
-        Debug.Log("The subject name is " + gameObject.name);
+        //Debug.Log("The subject name is " + gameObject.name);
         GameObject.Destroy(this.gameObject);
     }
 }

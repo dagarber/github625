@@ -7,23 +7,28 @@ public class CubeSpawnMove : MonoBehaviour
     public GameObject center;
     public float angularVelocity = 1.0f; // set in editor
     //float radius;
-    float angle;
+    private float angle;
     //float tempAngle;
 
     // Start is called before the first frame update
     void Start()
     {
         //radius = Vector3.Distance(transform.position, center.transform.position);
-        angle = 0f;
+        //angle = 0.0f;
         //tempAngle = angle;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        angle += angularVelocity * Time.deltaTime; // * 180.0f/ Mathf.PI;
+        angle = angularVelocity * Time.fixedDeltaTime; // * 180.0f/ Mathf.PI;
+
+        Debug.Log("Angle is " + angle + ", Velocity is " + angularVelocity + ", deltaTime is " + Time.fixedDeltaTime);
 
         transform.RotateAround(center.transform.position, Vector3.up, angle);
+
+        //if (angle > 360.0f)
+          //  angle = 0.0f;
         
         //tempAngle += angularVelocity * Time.fixedDeltaTime * 180.0f / Mathf.PI;
 

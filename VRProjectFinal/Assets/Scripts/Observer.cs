@@ -13,6 +13,8 @@ public enum NotificationType
 {
     BowledTwice,
     PigHit,
-    BirdHit
+    BirdHit,
+    FellDown,
+    Bonus
 }
 

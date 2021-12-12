@@ -14,8 +14,9 @@ GameObject:
   - component: {fileID: 1589517098351638072}
   - component: {fileID: 4472730280222114219}
   - component: {fileID: 4405400929014089704}
+  - component: {fileID: 7760041397290279057}
   m_Layer: 0
-  m_Name: Cube 1
+  m_Name: BonusCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 1912713342045164065}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 6.681608, y: 2.164307, z: 1.8}
-  m_LocalScale: {x: 0.20918, y: 0.20918, z: 0.20918}
+  m_LocalScale: {x: 0.2889403, y: 0.2889403, z: 0.2889403}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -123,4 +124,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ac1f2f9e415142159ad3eeab31952ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sphere: {fileID: 0}
+--- !u!114 &7760041397290279057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912713342045164065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c3087ec38049ab4981a0691b5332e8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gravity: {fileID: 0}
