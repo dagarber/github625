@@ -463,7 +463,7 @@ GameObject:
   - component: {fileID: 5751944990150981324}
   m_Layer: 8
   m_Name: FlareGun
-  m_TagString: Untagged
+  m_TagString: Gun
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -620,6 +620,7 @@ MonoBehaviour:
   audioSource: {fileID: 5751944990150981324}
   audioClip: {fileID: 8300000, guid: 82a05f1362993754aa9a7fa90de6bd30, type: 3}
   bulletText: {fileID: 1317966498903309524}
+  ScoreKeeper: {fileID: 0}
 --- !u!82 &5751944990150981324
 AudioSource:
   m_ObjectHideFlags: 0

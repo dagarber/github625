@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class FireGun : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class FireGun : MonoBehaviour
     public Text bulletText;
     public GameObject ScoreKeeper;
 
+    private bool deleted = false;
     private int bulletCount = 25;
 
     // Start is called before the first frame update
@@ -40,16 +42,23 @@ public class FireGun : MonoBehaviour
             bulletCount--;
         }
 
-        if (bulletCount == 0)
+        if (bulletCount == 0 && !deleted)
         {
             //bulletCount = 0;
             bulletText.color = Color.red;
             ScoreKeeper.GetComponent<Observer_Score>().DeleteGun();
-            //this.gameObject.GetComponent<XRGrabInteractable>().isGrabbed;
-            Destroy(this.gameObject, 10.0f);
+            //this.gameObject.GetComponent<XRGrabInteractable>().Drop();
+            //Destroy(this.gameObject.GetComponent<XRGrabInteractable>());
+            Destroy(this.gameObject, 0.5f);
+            deleted = true;
         }
 
         bulletText.text = bulletCount.ToString();
 
+    }
+
+    public int GetCount()
+    {
+        return bulletCount;
     }
 }

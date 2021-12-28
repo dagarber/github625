@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class Observer_Score : MonoBehaviour, Observer
 {
+    public XRDirectInteractor rHand;
+    public XRDirectInteractor lHand;
     public Text pigText;
     public Text birdText;
     public Canvas canvas;
@@ -99,6 +102,52 @@ public class Observer_Score : MonoBehaviour, Observer
     public void DeleteGun()
     {
         gunCount--;
+
+        if (rHand.selectTarget.tag == "Saber")
+        {
+            // do nothing
+        }
+        else if (rHand.selectTarget.tag == "Gun")
+        {
+            //rHand.Drop();
+            //Debug.Log("Count is " + rHand.selectTarget.GetComponent<FireGun>().GetCount());
+            if (rHand.selectTarget.GetComponent<FireGun>().GetCount() == 0)
+            {
+                //Debug.Log("True");
+                rHand.enableInteractions = false;
+                //Destroy(rHand.selectTarget.GetComponent<XRGrabInteractable>());
+                StartCoroutine(ReEnableGrab(rHand));
+                //return;
+            }
+            //else
+                //Debug.Log("False, count is " + rHand.selectTarget.GetComponent<FireGun>().GetCount());
+            //return;
+        }
+
+        if (lHand.selectTarget.tag == "Saber")
+        {
+            // do nothing
+        }
+        else if (lHand.selectTarget.tag == "Gun")
+        {
+            //rHand.Drop();
+            if (lHand.selectTarget.GetComponent<FireGun>().GetCount() == 0)
+            {
+                lHand.enableInteractions = false;
+                //Destroy(lHand.selectTarget.GetComponent<XRGrabInteractable>());
+                StartCoroutine(ReEnableGrab(rHand));
+                //return;
+            }
+            //return;
+        }
+
+
+    }
+
+    IEnumerator ReEnableGrab(XRDirectInteractor hand)
+    {
+        yield return new WaitForSeconds(1.0f);
+        hand.enableInteractions = true;
     }
 
     public bool checkFell()
