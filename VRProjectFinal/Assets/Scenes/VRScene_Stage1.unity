@@ -9899,6 +9899,7 @@ MonoBehaviour:
   Saber2: {fileID: 121870761}
   pigThresh: 1
   birdThresh: 2
+  saberGrowth: 0.1
 --- !u!4 &1256991443
 Transform:
   m_ObjectHideFlags: 0
@@ -10570,6 +10571,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -84.872
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 633402ea601ec7a4e8d58ce7e41da4ed,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 633402ea601ec7a4e8d58ce7e41da4ed,
         type: 3}

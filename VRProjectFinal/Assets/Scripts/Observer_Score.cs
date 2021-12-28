@@ -80,9 +80,9 @@ public class Observer_Score : MonoBehaviour, Observer
             //Saber2.transform.localPosition = new Vector3(objectPos2.x, objectPos2.y - objectScale2.y * 0.1f, objectPos2.z);
 
             Saber.transform.localScale = new Vector3(objectScale.x * 1.0f, objectScale.y + saberGrowth, objectScale.z * 1.0f);
-            Saber.transform.localPosition = new Vector3(objectPos.x, objectPos.y + saberGrowth * 0.5f, objectPos.z);
+            Saber.transform.localPosition = new Vector3(objectPos.x, objectPos.y + saberGrowth * 1.0f, objectPos.z);
             Saber2.transform.localScale = new Vector3(objectScale2.x * 1.0f, objectScale2.y + saberGrowth, objectScale2.z * 1.0f);
-            Saber2.transform.localPosition = new Vector3(objectPos2.x, objectPos2.y - saberGrowth * 0.5f, objectPos2.z);
+            Saber2.transform.localPosition = new Vector3(objectPos2.x, objectPos2.y - saberGrowth * 1.0f, objectPos2.z);
         }
 
 
