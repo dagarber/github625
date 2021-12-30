@@ -95,7 +95,7 @@ public class Observer_Score : MonoBehaviour, Observer
     IEnumerator Reload()
     {
         canvas.gameObject.SetActive(true);
-        yield return new WaitForSeconds(4.0f);
+        yield return new WaitForSeconds(10.0f);
         Scene scene = SceneManager.GetActiveScene(); SceneManager.LoadScene(scene.name);
     }
 
